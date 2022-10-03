@@ -12,16 +12,16 @@ namespace GradesList
     public class Course //наименование курса
     {
         [Column("course_id")]
-        public int courseId { get; set; } 
+        public int? courseId { get; set; } 
 
         [Column("course_name")]
         [Required]
-        public string courseName { get; set; } //название курса
+        public string? courseName { get; set; } //название курса
 
         [Column("academic_discipline_id")]
         [Required]
-        public int dscplnId { get; set; }
-        public AcademicDiscipline acDiscipline { get; set; } //навигация на дисциплину
+        public int? dscplnId { get; set; }
+        public AcademicDiscipline? acDiscipline { get; set; } //навигация на дисциплину
 
         public List<Student> students = new List<Student>(); //навигация в студента
 
