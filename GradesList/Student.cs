@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GradesList
 {
-    [Table("table_student")]
+    [Table("student")]
     public class Student //карточка студента
     {
         [Column("student_id")]
@@ -24,8 +24,10 @@ namespace GradesList
 
         [Column("course_id")]
         [Required]
-        public int course { get; set; }//на каком направлении(курсе) учится студент
-        
+        public int courseId { get; set; }//на каком направлении(курсе) учится студент
+        public Course Course { get; set; } //навигация на курс
+
+        public List<AcademicDiscipline> academicDisciplines = new List<AcademicDiscipline>(); //навигация в дисциплину
     }
 }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GradesList
 {
-    [Table("table_academic_discipline")]
+    [Table("academic_discipline")]
     public class AcademicDiscipline //учебная дисциплина
     {
         [Column("discipline_id")]
@@ -18,10 +18,19 @@ namespace GradesList
         [Required]
         public string dscplnName { get; set; } //наименование учебной дисциплины
 
- //???   [Column("discipline_name")]
+        [Column("discipline_name")]
         [Required]
-        List<int> grades = new List<int>(); //список оценок студента по дисциплине
+        public int studentID { set; get; }
+        public Student Student { get; set; } //навигация на студента
 
+        public int score { get; set; } //оценка
+
+        [Column("discipline_name")]
+        [Required]
+        public int gtID { set; get; }
+        public GradeType GradeType { get; set; } //навигация на тип оценки
+
+        public List<Course> disciplinesIncludInCourse = new List<Course>(); //навигация в курс
     }
 }
 

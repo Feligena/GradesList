@@ -8,19 +8,22 @@ using System.Threading.Tasks;
 
 namespace GradesList
 {
-    [Table("table_course")]
+    [Table("course")]
     public class Course //наименование курса
     {
         [Column("course_id")]
-        public int courseId { get; set; }
+        public int courseId { get; set; } 
 
         [Column("course_name")]
         [Required]
-        public string courseName { get; set; }
+        public string courseName { get; set; } //название курса
 
- //???       [Column("course_name")]
+        [Column("academic_discipline_id")]
         [Required]
-        List<AcademicDiscipline> courseDisciplines = new List<AcademicDiscipline>();//Дисциплины, которые включает в себя этот курс
+        public int dscplnId { get; set; }
+        public AcademicDiscipline acDiscipline { get; set; } //навигация на дисциплину
+
+        public List<Student> students = new List<Student>(); //навигация в студента
 
     }
 }
